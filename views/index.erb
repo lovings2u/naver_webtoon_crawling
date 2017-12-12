@@ -1,0 +1,24 @@
+<h1>네이버 웹툰</h1>
+<form action="/search">
+  <input type="text" name="q" placeholder="웹툰을 검색하세요">
+  <input type="submit" value="검색!">
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>이미지</th>
+      <th>제목</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @webtoons.each do |toon| %>
+    <tr>
+      <td><img src="<%= toon[:img_url] %>" alt="<%= toon[:title] %>"></td>
+      <td><%= toon[:title] %></td>
+      <td><a href="http://comic.naver.com<%= toon[:link] %>">보러가기</a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
